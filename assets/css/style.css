@@ -1201,18 +1201,13 @@ only screen and (min-width: 768px) and (max-width: 991px),
 /*----------------------------------------
     02. header CSS
 ----------------------------------------*/
-.sticky {
-  position: fixed;
-  top: 0;
-  background: var(--clr-common-white);
-  z-index: 800;
-  right: 0;
-  left: 0;
-  width: 100%;
-  transition: 0.4s;
-  box-shadow: 0 0 60px 0 rgba(53, 57, 69, 0.15);
-  animation: 300ms ease-in-out 0s normal none 1 running fadeInDown;
-  border: none;
+#header-sticky {
+  transform: translateY(-100%); // Esconde o menu por padrão
+  transition: transform 0.3s ease;
+}
+
+#header-sticky.sticky {
+  transform: translateY(0); // Mostra o menu quando a classe .sticky está presente
 }
 
 .main-menu {
@@ -7012,7 +7007,7 @@ only screen and (min-width: 576px) and (max-width: 767px),
 }
 
 .portfolio-style-2-pagination .swiper-pagination-bullet {
-  width: 20px;
+  width: 8px;
   height: 4px;
   background: #205442;
   border-radius: 2px;
