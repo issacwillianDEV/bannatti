@@ -140,15 +140,21 @@ $('.mfp-inline').magnificPopup({
   });
 
   ////////////////////////////////////////////////////
-  // Sticky Header Js
-  windowOn.on("scroll", function () {
-    var scroll = $(window).scrollTop();
-    if (scroll < 100) {
+  var posicaoAtualScroll = 0;
+
+  $(window).on("scroll", function () {
+    var posicaoNovaScroll = $(this).scrollTop();
+
+    if (posicaoNovaScroll > posicaoAtualScroll) {
+      // Rolando para baixo
       $("#header-sticky").removeClass("sticky");
     } else {
+      // Rolando para cima ou parando
       $("#header-sticky").addClass("sticky");
     }
+    posicaoAtualScroll = posicaoNovaScroll;
   });
+
 
   ////////////////////////////////////////////////////
   // Data Background Js
